@@ -66,29 +66,42 @@ $('.sidbar-group-link').click(function () {
     $(this).children('.sidbar-dropdowntoggle').children('angle').removeClass('fa-angle-left');
     $(this).children('.sidbar-dropdowntoggle').children('angle').addClass('fa-angle-down');
 });
+});
 
 $('#full-screan').click(function () { 
     togglefullscrean();
     
 });
 function togglefullscrean(){
-    if((document.fullscreenElement && document.fullscreenElement !==null)||(!document.mozfullscrean && !document.webkitisfullscrean)){
+    if((document.fullScreenElement && document.fullScreenElement !==null)||(!document.mozFullScrean && !document.webkitIsFullScrean)){
 
 if(document.documentElement.requestFullscreen){
     document.documentElement.requestFullscreen();
 }
-else if(document.documentElement.mozrequestFullscreen){
-    document.documentElement.mozrequestFullscreen();
+else if(document.documentElement.mozRequestFullscreen){
+    document.documentElement.mozRequestFullscreen();
 }
-else if(document.documentElement.webkitrequestFullscreen){
-    document.documentElement.webkitrequestFullscreen(Element.allow_keyboard_input);
+else if(document.documentElement.webkitRequestFullscreen){
+    document.documentElement.webkitRequestFullscreen(Element.ALLOW_KEYBOARD_INPUT);
 }
 $('#screan-compress').removeClass('d-none');
 $('#screan-expand').addClass('d-none');
     }
     else{
-        
+        alert('hi');
+       if (document.cancelFullscreen) {
+        document.cancelFullscreen();
+       }
+       else if(document.mozCancelFullscreen){
+        document.mozCancelFullscreen;
+
+       }
+     else if(document.webkitCancelFullscreen){
+        document.webkitCancelFullscreen;
+
+       }
+       $('#screan-compress').addClass('d-done');
+       $('#screan-expand').removeClass('d-none');
     }
 }
 
-})
