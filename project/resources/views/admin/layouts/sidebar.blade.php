@@ -62,9 +62,9 @@
                     <i class="fas fa-angle-left angle"></i>
                 </section>
                 <section class="sidebar-dropdown">
-                    <a href="#">کپن تخفیف</a>
-                    <a href="#">تخفیف عمومی</a>
-                    <a href="#">فروش شگفت انگیز</a>
+                    <a href="{{route('admin.market.Discount.copan')}}">کپن تخفیف</a>
+                    <a href="{{route('admin.market.Discount.commomDiscount')}}">تخفیف عمومی</a>
+                    <a href="{{route('admin.market.Discount.amazingSale')}} ">فروش شگفت انگیز</a>
                 </section>
             </section>
 

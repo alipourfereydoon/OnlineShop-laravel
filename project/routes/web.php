@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\AdminDashboardController;
 use App\Http\Controllers\Admin\Market\CommentController;
 use App\Http\Controllers\Admin\Market\CategoryController;
 use App\Http\Controllers\Admin\Market\DeliveryController;
+use App\Http\Controllers\Admin\Market\DiscountController;
 
 // |---------------------------------------------------------------
 // admin
@@ -57,6 +58,19 @@ Route::prefix('admin')->namespace('Admin')->group(function(){
         Route::put('/update/{id}',[DeliveryController::class,'update'])->name('admin.market.delivery.update');
         Route::delete('/destroy/{id}',[DeliveryController::class,'destroy'])->name('admin.market.delivery.destroy');
     });
+
+
+        //discount
+
+        Route::prefix('discount')->group(function(){
+        Route::get('/copan',[DiscountController::class,'copan'])->name('admin.market.Discount.copan');
+        Route::get('/copan/create',[DiscountController::class,'CopanCreate'])->name('admin.market.Discount.copan.create');
+        Route::get('/common-discount',[DiscountController::class,'commonDiscount'])->name('admin.market.Discount.commomDiscount');
+        Route::get('/common-discount/create',[DiscountController::class,'commonDiscountCreate'])->name('admin.market.Discount.commomDiscountCreate');
+        Route::get('/amazing-sale',[DiscountController::class,'amazingSale'])->name('admin.market.Discount.amazingSale');
+        Route::get('/amazing-sale/create',[DiscountController::class,'amazingSaleCreate'])->name('admin.market.Discount.amazingSaleCreate');
+    });
+
 
     });
 });
