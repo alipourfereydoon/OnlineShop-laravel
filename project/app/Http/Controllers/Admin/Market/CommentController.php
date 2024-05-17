@@ -5,14 +5,14 @@ namespace App\Http\Controllers\Admin\Market;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class BrandController extends Controller
+class CommentController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return view('./admin.market.brand.index');
+        return view('admin.market.comment.index');
     }
 
     /**
@@ -20,7 +20,7 @@ class BrandController extends Controller
      */
     public function create()
     {
-        return view('admin.market.brand.create');
+       //
     }
 
     /**
@@ -34,9 +34,11 @@ class BrandController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+
+
+    public function show()
     {
-        //
+        return view('admin.market.comment.show');
     }
 
     /**
