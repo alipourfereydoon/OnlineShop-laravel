@@ -25,18 +25,30 @@
 .bg-custom-green{
      background: -webkit-gradient(linear,left top,right top,from(#0df3a3),to(#0ac282));
     background: linear-gradient(to right,#0df3a3,#0ac282);
-    
+
 
 }
 .bg-custom-pink{
      background: -webkit-gradient(linear,left top,right top,from(#fe909d),to(#fe5d78));
     background: linear-gradient(to right,#fe909d,#fe5d78);
-    
+
 
 }
 .bg-custom-blue{
      background: -webkit-gradient(linear,left top,right top,from(#01dbdf),to(#01a9ac));
     background: linear-gradient(to right,#01dbdf,#01a9ac);
-    
 
+
+}
+.font-size-12{
+    font-size: 12px;
+}
+.max-width-16-rem{
+    max-width: 16rem;
+}
+.width-16-rem{
+    width: 16rem;
+}
+.main-body table{
+    font-size: 0.75rem;
 }

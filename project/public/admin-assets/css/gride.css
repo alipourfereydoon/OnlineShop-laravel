@@ -229,7 +229,8 @@ padding: 0.4rem;
     color: #dcdcdc;
     transition: all .3s;
 }
-.sidebar-dropdown a::before , button::before{
+.sidebar-dropdown a::before ,
+.sidebar-dropdown button::before{
     content: '>>';
     margin:0.8rem;
 }
