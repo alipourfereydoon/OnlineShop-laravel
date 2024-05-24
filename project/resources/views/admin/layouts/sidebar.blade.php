@@ -32,12 +32,12 @@
                     <i class="fas fa-angle-left angle"></i>
                 </section>
                 <section class="sidebar-dropdown">
-                    <a href="#"> جدید</a>
-                    <a href="#">در حال ارسال</a>
-                    <a href="#">پرداخت نشده</a>
-                    <a href="#">باطل شده</a>
-                    <a href="#">مرجوعی</a>
-                    <a href="#">تمام سفارشات</a>
+                    <a href="{{Route('admin.market.Order.newOrders')}}"> جدید</a>
+                    <a href="{{Route('admin.market.Order.sending')}}">در حال ارسال</a>
+                    <a href="{{Route('admin.market.Order.unpaid')}}">پرداخت نشده</a>
+                    <a href="{{Route('admin.market.Order.canceled')}}">باطل شده</a>
+                    <a href="{{Route('admin.market.Order.returned')}}">مرجوعی</a>
+                    <a href="{{Route('admin.market.Order.all')}}">تمام سفارشات</a>
                 </section>
             </section>
 

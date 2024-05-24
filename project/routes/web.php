@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\Market\BrandController;
+use App\Http\Controllers\Admin\Market\OrderController;
 use App\Http\Controllers\Admin\AdminDashboardController;
 use App\Http\Controllers\Admin\Market\CommentController;
 use App\Http\Controllers\Admin\Market\CategoryController;
@@ -69,6 +70,21 @@ Route::prefix('admin')->namespace('Admin')->group(function(){
         Route::get('/common-discount/create',[DiscountController::class,'commonDiscountCreate'])->name('admin.market.Discount.commomDiscountCreate');
         Route::get('/amazing-sale',[DiscountController::class,'amazingSale'])->name('admin.market.Discount.amazingSale');
         Route::get('/amazing-sale/create',[DiscountController::class,'amazingSaleCreate'])->name('admin.market.Discount.amazingSaleCreate');
+    });
+
+            //order
+
+        Route::prefix('order')->group(function(){
+        Route::get('/',[OrderController::class,'all'])->name('admin.market.Order.all');
+        Route::get('/new-order',[OrderController::class,'newOrders'])->name('admin.market.Order.newOrders');
+        Route::get('/sending',[OrderController::class,'sending'])->name('admin.market.Order.sending');
+        Route::get('/unpaid',[OrderController::class,'unpaid'])->name('admin.market.Order.unpaid');
+        Route::get('/canceled',[OrderController::class,'canceled'])->name('admin.market.Order.canceled');
+        Route::get('/returned',[OrderController::class,'returned'])->name('admin.market.Order.returned');
+        Route::get('/show',[OrderController::class,'show'])->name('admin.market.Order.show');
+        Route::get('/change-send-status',[OrderController::class,'changeSendStatus'])->name('admin.market.Order.changeSendStatus');
+        Route::get('/change-order-status',[OrderController::class,'changeOrderStatus'])->name('admin.market.Order.changeOrderStatus');
+        Route::get('/cancel-order',[OrderController::class,'cancelOrder'])->name('admin.market.Order.cancelOrder');
     });
 
 
