@@ -1,8 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\content\FAQController;
+use App\Http\Controllers\Admin\Content\MenuController;
 use App\Http\Controllers\Admin\Market\BrandController;
 use App\Http\Controllers\Admin\Market\OrderController;
+use App\Http\Controllers\Admin\Market\StoreController;
 use App\Http\Controllers\Admin\AdminDashboardController;
 use App\Http\Controllers\Admin\Market\CommentController;
 use App\Http\Controllers\Admin\Market\GalleryController;
@@ -11,6 +14,9 @@ use App\Http\Controllers\Admin\Market\ProductController;
 use App\Http\Controllers\Admin\Market\CategoryController;
 use App\Http\Controllers\Admin\Market\DeliveryController;
 use App\Http\Controllers\Admin\Market\DiscountController;
+use App\Http\Controllers\Admin\Market\PropertyController;
+use App\Http\Controllers\Admin\content\CommentController as ContentCommentController;
+use App\Http\Controllers\Admin\content\CategoryController as ContentCategoryController;
 
 // |---------------------------------------------------------------
 // admin
@@ -19,6 +25,7 @@ Route::prefix('admin')->namespace('Admin')->group(function(){
     Route::get('/', [AdminDashboardController::class, 'index'])->name('admin.home');
 
     Route::prefix('market')->namespace('Narket')->group(function(){
+
         //create category route in admin panell
 
     Route::prefix('category')->group(function(){
@@ -118,6 +125,75 @@ Route::prefix('admin')->namespace('Admin')->group(function(){
     });
 
 
+       //property
+     Route::prefix('property')->group(function(){
+        Route::get('/',[PropertyController::class,'index'])->name('admin.market.property.index');
+        Route::get('/create',[PropertyController::class,'create'])->name('admin.market.property.create');
+        Route::post('/store',[PropertyController::class,'store'])->name('admin.market.property.store');
+        Route::get('/edit/{id}',[PropertyController::class,'edit'])->name('admin.market.property.edit');
+        Route::put('/update/{id}',[PropertyController::class,'update'])->name('admin.market.property.update');
+        Route::delete('/destroy/{id}',[PropertyController::class,'destroy'])->name('admin.market.property.destroy');
+    });
+
+           //store
+     Route::prefix('store')->group(function(){
+        Route::get('/',[StoreController::class,'index'])->name('admin.market.store.index');
+        Route::get('/add-to-store',[StoreController::class,'addtostore'])->name('admin.market.store.add-to-store');
+        Route::post('/store',[StoreController::class,'store'])->name('admin.market.store.store');
+        Route::get('/edit/{id}',[StoreController::class,'edit'])->name('admin.market.store.edit');
+        Route::put('/update/{id}',[StoreController::class,'update'])->name('admin.market.store.update');
+        Route::delete('/destroy/{id}',[StoreController::class,'destroy'])->name('admin.market.store.destroy');
+    });
+
+
+
+    });
+
+    Route::prefix('content')->namespace('Content')->group(function(){
+
+        //categorry
+
+        Route::prefix('category')->group(function(){
+            Route::get('/',[ContentCategoryController::class,'index'])->name('admin.content.category.index');
+            Route::get('/create',[ContentCategoryController::class,'create'])->name('admin.content.category.create');
+            Route::post('/store',[ContentCategoryController::class,'store'])->name('admin.content.category.store');
+            Route::get('/edit/{id}',[ContentCategoryController::class,'edit'])->name('admin.content.category.edit');
+            Route::put('/update/{id}',[ContentCategoryController::class,'update'])->name('admin.content.category.update');
+            Route::delete('/destroy/{id}',[ContentCategoryController::class,'destroy'])->name('admin.content.category.destroy');
+        });
+    //comments
+
+    Route::prefix('comment')->group(function(){
+        Route::get('/',[ContentCommentController::class,'index'])->name('admin.content.comment.index');
+        Route::get('/show',[ContentCommentController::class,'show'])->name('admin.content.comment.show');
+        Route::post('/store',[ContentCommentController::class,'store'])->name('admin.content.comment.store');
+        Route::get('/edit/{id}',[ContentCommentController::class,'edit'])->name('admin.content.comment.edit');
+        Route::put('/update/{id}',[ContentCommentController::class,'update'])->name('admin.content.comment.update');
+        Route::delete('/destroy/{id}',[ContentCommentController::class,'destroy'])->name('admin.content.comment.destroy');
+    });
+
+        //FAQ
+
+    Route::prefix('faq')->group(function(){
+        Route::get('/',[FAQController::class,'index'])->name('admin.content.FAQ.index');
+        Route::get('/create',[FAQController::class,'create'])->name('admin.content.FAQ.create');
+        Route::post('/store',[FAQController::class,'store'])->name('admin.content.FAQ.store');
+        Route::get('/edit/{id}',[FAQController::class,'edit'])->name('admin.content.FAQ.edit');
+        Route::put('/update/{id}',[FAQController::class,'update'])->name('admin.content.FAQ.update');
+        Route::delete('/destroy/{id}',[FAQController::class,'destroy'])->name('admin.content.FAQ.destroy');
+    });
+
+
+        //menu
+
+    Route::prefix('menu')->group(function(){
+        Route::get('/',[MenuController::class,'index'])->name('admin.content.menu.index');
+        Route::get('/create',[MenuController::class,'create'])->name('admin.content.menu.create');
+        Route::post('/store',[MenuController::class,'store'])->name('admin.content.menu.store');
+        Route::get('/edit/{id}',[MenuController::class,'edit'])->name('admin.content.menu.edit');
+        Route::put('/update/{id}',[MenuController::class,'update'])->name('admin.content.menu.update');
+        Route::delete('/destroy/{id}',[MenuController::class,'destroy'])->name('admin.content.menu.destroy');
+    });
 
     });
 });
