@@ -38,41 +38,53 @@
                                 <th> # </th>
                                 <th>نام دسته بندی</th>
                                 <th>
-                                    دسته والد
+                                    توضیحات
+                                </th>
+                                <th>
+                                    slug
+                                </th>
+                                <th>
+                                    عکس
+                                </th>
+                                <th>
+                                    tags
+                                </th>
+                                <th>
+                                    وضعیت
                                 </th>
                                 <th class="max-width-16-rem text-center"> <i class="fa fa-cogs"></i> تنظیمات کلی</th>
                             </tr>
 
                         </thead>
                     <tbody>
+
+                        @
+                        @foreach ( $postCategories as $postCategory)
                             <tr>
                                 <th>1</th>
-                                <td>نمایشگر</td>
-                                <td>کالای الکترونیکی</td>
+                                <td>{{$postCategory->name}} </td>
+                                <td>{{$postCategory->description}} </td>
+                                <td>{{$postCategory->slug}} </td>
+                                <td> <img src="{{ asset($postCategory->image) }}" alt="" width="50" height="50"></td>
+                                <td>{{$postCategory->tags}} </td>
+                                <td>
+                                    <label for="">
+                                        <input type="checkbox" @if ($postCategory->status===1)
+                                        checked;
+                                        @endif>
+                                    </label>
+                                </td>
                                 <td class="width-16-rem text-left">
-                                    <a href="#" class="btn btn-primary btn-sm"><i class="fa fa-edit"></i>ویرایش</a>
+                                    <a href="{{route('admin.content.category.edit',$postCategory->id)}}" class="btn btn-primary btn-sm"><i class="fa fa-edit"></i>ویرایش</a>
+                                    <form class="d-inline" action="{{route('admin.content.category.destroy',$postCategory->id)}}" method="POST">
+                                        @csrf
+                                        {{method_field('delete')}}
                                     <button class="btn btn-danger btn-sm" type="submit"><i class="fa fa-trash-alt"></i>حذف</button>
+                                    </form>
                                 </td>
                             </tr>
+                         @endforeach
 
-                                <tr>
-                                    <th>2</th>
-                                    <td>نمایشگر</td>
-                                    <td>کالای الکترونیکی</td>
-                                    <td class="width-16-rem text-left">
-                                        <a href="#" class="btn btn-primary btn-sm"><i class="fa fa-edit"></i>ویرایش</a>
-                                        <button class="btn btn-danger btn-sm" type="submit"><i class="fa fa-trash-alt"></i>حذف</button>
-                                    </td>
-                                </tr>
-                                    <tr>
-                                        <th>3</th>
-                                        <td>نمایشگر</td>
-                                        <td>کالای الکترونیکی</td>
-                                        <td class="width-16-rem text-left">
-                                            <a href="#" class="btn btn-primary btn-sm"><i class="fa fa-edit"></i>ویرایش</a>
-                                            <button class="btn btn-danger btn-sm" type="submit"><i class="fa fa-trash-alt"></i>حذف</button>
-                                        </td>
-                                    </tr>
                     </tbody>
                 </table>
 
